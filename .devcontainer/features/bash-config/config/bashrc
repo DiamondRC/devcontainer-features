@@ -13,9 +13,9 @@ if [ ! -f /one-time ]; then
 
     # add your personal one time only (container creation) commands here
     # e.g. to add zsh in:-
-    # apt-get update; apt-get install -y zsh
-    # echo y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
-    # sed -i 's/robbyrussel/dst/' /root/.zshrc
+    #    apt-get update; apt-get install -y zsh
+    #    echo y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
+    #    sed -i 's/^ZSH_THEME.*/ZSH_THEME\=dst/' ~/.zshrc
 
     touch /one-time
 fi
