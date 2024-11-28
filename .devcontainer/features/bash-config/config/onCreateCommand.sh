@@ -12,5 +12,5 @@ if [[ ! -f $CONFIG_FOLDER/bashrc ]] ; then
 fi
 
 # hook in the config to the root account
-ln -s $CONFIG_FOLDER/inputrc /root/.inputrc
+ln -fs $CONFIG_FOLDER/inputrc /root/.inputrc
 echo "source $CONFIG_FOLDER/bashrc" >> /root/.bashrc
