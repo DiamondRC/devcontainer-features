@@ -4,7 +4,7 @@ Devcontainer features for use in Python Copier Template or any other devcontaine
 
 ## bash-config
 
-Adds customizations to the the bash shell that can be shared across all developer containers using the feature.
+Adds customizations to the bash shell that can be shared across all developer containers using the feature.
 
 See details in the [bash-config README](.devcontainer/features/bash-config/README.md).
 
@@ -14,7 +14,7 @@ Further features may be added here in future.
 
 ## Testing
 
-This repo has it's own devcontainer which can be used to do local testing and development of the features.
+This repo has its own devcontainer which can be used to do local testing and development of the features.
 
 ## Publishing Features
 
