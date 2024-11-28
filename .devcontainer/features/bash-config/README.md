@@ -1,26 +1,47 @@
-# Lightweight, Configurable BASH Eternal History
+# Lightweight, Configurable BASH Config with Eternal History
 
-## Defaults
+Intended as a lightweight alternative to common-utils.
 
-When this feature is first called, onCreateCommand.sh is created and called in `devcontainer-feature`. 
-This creates and installs a default bash terminal configuration from `feature_settings_rc` which contains opinionated default BASH terminal settings such as:
-* A minimalist, blue bash prompt.
-* Eternal, shared history between containers using this feature.
+## Installation
+
+To use this feature in an individual devcontainer, add the following to your `.devcontainer/devcontainer.json`:
+
+```json
+    "features": {
+        "ghcr.io/diamondlightsource/devcontainer-features/bash-config:1": {}
+    },
+    "initializeCommand": "mkdir -p ${localEnv:HOME}/.config/bash-config",
+```
+
+The initializeCommand is required to create the directory for the bash-config folder in your home folder on the host, the very first time this is executed. Features do not have an InitializeCommand, so the devcontainer.json must do this.
+
+## Global Installation
+
+To use this feature in all devcontainers on your workstation, add the following to User setting.json:
+
+```json
+    "dev.containers.defaultFeatures": {
+        "ghcr.io/gilesknap/devcontainer-features/bash-config:1.1.0"
+    }
+```
+
+Also, one time only, make sure the host folder for bash-config is created:
+
+```bash
+mkdir -p $HOME/.config/bash-config
+```
+
+
+## features
+
+The default, opinionated configuration can be found in `$HOME/.config/bash-config/bash-config-rc` and includes the following:
+
+- Persistent history across all devcontainers that use this feature
+- The MS devcontainer bash prompt with git branch and status
+- history search with up/down arrows (.inputrc)
+- ctrl-left or right arrow for word navigation (.inputrc)
+- git autocomplete
 
 ## Customisation
 
-The user can specify their own terminal preferences in `$CONFIG_STAGING/bashrc`, which defaults to `/devcontainer_staging/bashrc`.
-Then the container is rebuilt, if `bashrc` already exists it won't be overwritten, preserving changes. If the container has been built once already, the existing bashrc must be deleted in order for your changes to be applied. 
-
-
-
-creates staging folder in container 
-creates onCreateCommand.sh in the staging folder
-inputrc and bashrc are also created in the staging folder, containing incremental history searching and user customisations respectively
-feature_settings_rc is created in the staging fodler, which contains a PS1 setup and opinionated terminal features 
-"onCreateCommand" is then exectuted inside the container during finalisation of container setup.
- - This copies the contents of feature_settings_rc into devcontainer_rc
- - then copies bashrc and inputrc into the container, unless they exist already to prevent overwriting user edits
- - then adds root permissions.
-A symbolic link to /root/ is created The items in the CONFIG_FOLDER
-our bashrc is called by /root/.bashrc
+Can be customized by editing `$HOME/.config/bash-config/bashrc`
