@@ -21,7 +21,7 @@ To use this feature in all devcontainers on your workstation, add the following 
 
 ```json
     "dev.containers.defaultFeatures": {
-        "ghcr.io/gilesknap/devcontainer-features/bash-config:1.1.0"
+        "ghcr.io/diamondlightsource/devcontainer-features/bash-config:1"
     }
 ```
 
@@ -32,7 +32,7 @@ mkdir -p $HOME/.config/bash-config
 ```
 
 
-## features
+## Features
 
 The default, opinionated configuration can be found in `$HOME/.config/bash-config/bash-config-rc` and includes the following:
 
