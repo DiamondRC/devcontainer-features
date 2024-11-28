@@ -26,6 +26,8 @@
     "features": {
         "./features/bash-config": {}
     },
+    // Create the config folder for the bash-config feature
+    "initializeCommand": "mkdir -p ${localEnv:HOME}/.config/bash-config",
     "runArgs": [
         // Allow the container to access the host X11 display and EPICS CA
         "--net=host",
@@ -34,7 +36,5 @@
     ],
     // Mount the parent as /workspaces so we can pip install peers as editable
     "workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspaces,type=bind",
-    // Create the config folder for the bash-config feature
-    "initializeCommand": "mkdir -p ${localEnv:HOME}/.config/bash-config",
     "remoteUser": "root"
 }
